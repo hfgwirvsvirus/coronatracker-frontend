@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Idle from "../views/Idle.vue";
 import Success from "../views/Success.vue";
+import Checkout from "../views/Checkout.vue";
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,11 @@ const routes = [
     path: "/success",
     name: "Success",
     component: Success
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: Checkout
   }
 ];
 
