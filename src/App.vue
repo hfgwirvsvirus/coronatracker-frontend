@@ -13,7 +13,10 @@
           Halten Sie ihre Karte an<br />die Markierung
         </h3>
         <div class="self-center">
-          <Barcodescanner routerLink="/success" />
+          <Barcodescanner
+            routerCheckinLink="/success"
+            routerCheckoutLink="/checkout"
+          />
         </div>
       </div>
     </div>

@@ -27,8 +27,8 @@
     <div
       class=" w-11/12 p-5 bg-white rounded overflow-hidden shadow-lg text-left flex flex-row justify-between"
     >
-      <div class="font-bold text-4xl text-black mb-2 ">
-        Ihr aktueller Status
+      <div class="font-bold text-2xl text-black mb-2 ">
+        Ihr aktueller Status (ID: {{ $route.params.uid }})
       </div>
       <div
         v-if="loading"
@@ -80,9 +80,9 @@ export default {
       {
         "checkinType" : "code",
         "enterTime"   : 12345678,
-        "exitTime"    : 12345679,
+        "exitTime"    : new Date().toString(),
         "terminalID"  : 1,
-        "userID"      : 1
+        "userID"      : this.$route.params.uid
       },
       {
         headers: { 

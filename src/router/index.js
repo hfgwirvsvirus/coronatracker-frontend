@@ -18,12 +18,12 @@ const routes = [
     component: Idle
   },
   {
-    path: "/success",
+    path: "/success/:uid",
     name: "Success",
     component: Success
   },
   {
-    path: "/checkout",
+    path: "/checkout/:uid",
     name: "Checkout",
     component: Checkout
   }
