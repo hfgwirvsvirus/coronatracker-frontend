@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-quagga
+      :onProcessed="detectionState"
       :onDetected="logIt"
       :readerSize="readerSize"
       :readerTypes="['ean_reader']"
@@ -9,7 +10,6 @@
 </template>
 
 <script>
-let timer;
 export default {
   props: ["routerLink"],
   data() {
@@ -27,31 +27,22 @@ export default {
   },
 
   methods: {
+    detectionState(data) {
+      if (typeof data === "undefined") {
+        if (this.$route.path !== "/idle" && this.$route.path !== "/") {
+          this.$router.push("/idle");
+        }
+      }
+    },
     logIt(data) {
-      // console.log("detected", data);
       this.barcode = data.codeResult.code;
       this.route = this.$route.path;
       if (this.barcode !== this.lastBarcode && this.route !== this.lastRoute) {
         if (this.$route !== "/success") {
           this.$router.push("/success");
           this.lastRoute = "/success";
+          this.lastBarcode = this.barcode;
         }
-        // else {
-        //   this.lastBarcode = this.barcode;
-        //   console.log("different barcode!");
-        //   console.log(data.codeResult.code);
-        //   this.$router.push("/idle");
-        //   this.lastRoute = "/idle";
-        // }
-      } else {
-        if (window.timer) {
-          clearTimeout(timer);
-        }
-        console.log("timout");
-        // timer = setTimeout(this.$router.push("/idle"), 5000000);
-        timer = setTimeout(function() {
-          // alert("Hello");
-        }, 5000);
       }
     }
   }
