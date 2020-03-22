@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: ["routerLink"],
+  props: ["routerCheckinLink", "routerCheckoutLink"],
   data() {
     return {
       readerSize: {
@@ -19,7 +19,9 @@ export default {
         height: 480
       },
       detecteds: [],
-      route: this.routerLink,
+      route: null,
+      checkinRoute: this.routerCheckinLink,
+      checkoutRoute: this.routerCheckoutLink,
       lastRoute: "",
       barcode: "",
       lastBarcode: ""
@@ -36,11 +38,12 @@ export default {
     },
     logIt(data) {
       this.barcode = data.codeResult.code;
+      //TODO: check whether this is a checkin or checkout with vuex, use proper route
       this.route = this.$route.path;
       if (this.barcode !== this.lastBarcode && this.route !== this.lastRoute) {
-        if (this.$route !== "/success") {
-          this.$router.push("/success");
-          this.lastRoute = "/success";
+        if (!this.$route.path.startsWith("/checkout")) {
+          this.$router.push("/checkout/" + this.barcode);
+          this.lastRoute = "/checkout/" + this.barcode;
           this.lastBarcode = this.barcode;
         }
       }
