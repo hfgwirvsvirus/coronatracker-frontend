@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scanner">
     <v-quagga
       :onProcessed="detectionState"
       :onDetected="logIt"
@@ -15,8 +15,8 @@ export default {
   data() {
     return {
       readerSize: {
-        width: 320,
-        height: 240
+        width: 640,
+        height: 480
       },
       detecteds: [],
       route: this.routerLink,
@@ -49,4 +49,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.scanner {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+video {
+  position: inherit !important;
+  width: 100%;
+  // transform: scale(0.5);
+}
+</style>

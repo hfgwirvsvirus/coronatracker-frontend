@@ -1,0 +1,52 @@
+html,
+body {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  color: #171d33;
+}
+
+$pr-green: #45dc9a;
+$pr-orange: #f28505;
+$pr-red: #ff2035;
+$pr-gray: #626262;
+$pr-lightgray: #c4c4c4;
+$pr-ultralightgray: #ededed;
+
+.bg-green {
+  background-color: $pr-green;
+}
+.bg-orange {
+  background-color: $pr-orange;
+}
+.bg-red {
+  background-color: $pr-red;
+}
+.bg-gray {
+  background-color: $pr-gray;
+}
+.bg-lightgray {
+  background-color: $pr-lightgray;
+}
+
+.bg-ultralightgray {
+  background-color: $pr-ultralightgray;
+}
+
+.font-green {
+  color: $pr-green;
+}
+.font-orange {
+  color: $pr-orange;
+}
+.font-red {
+  color: $pr-red;
+}
+.font-gray {
+  color: $pr-gray;
+}
+.font-lightgray {
+  color: $pr-lightgray;
+}

@@ -1,51 +1,47 @@
 <template>
-  <div id="app">
-    <div class="row">
-      <div class="column scanner">
-        <Barcodescanner routerLink="/success" />
+  <div id="app" class="bg-ultralightgray leading-normal">
+    <div class="flex flex-row">
+      <div class="w-1/2">
+        <transition name="fade">
+          <router-view />
+        </transition>
       </div>
-
-      <div class="column">
-        <div id="nav">
-          <router-link to="/">Idle</router-link> |
-          <router-link to="/success">Success</router-link>
+      <div class="w-1/2 py-8 scanner flex flex-col items-center">
+        <h3
+          class="text-white w-11/12 text-xl font-bold text-center leading-snug"
+        >
+          Halten Sie ihre Karte an<br />die Markierung
+        </h3>
+        <div class="self-center">
+          <Barcodescanner routerLink="/success" />
         </div>
-        <router-view />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  // padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
-.container {
-  display: flex;
-}
-.row {
-  display: flex;
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.5s;
 }
 
-.column {
-  flex: 50%;
+.scanner {
+  height: 100vh;
+  background-color: black;
 }
 </style>
