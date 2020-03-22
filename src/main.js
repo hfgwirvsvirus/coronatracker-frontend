@@ -4,6 +4,8 @@ import "./registerServiceWorker";
 import router from "./router";
 import VueQuagga from "vue-quaggajs";
 import Barcodescanner from "@/components/Barcodescanner.vue";
+import "@/assets/css/tailwind.css";
+import "@/assets/css/main.scss";
 
 Vue.config.productionTip = false;
 
