@@ -81,8 +81,8 @@ export default {
         "checkinType" : "code",
         "enterTime"   : 12345678,
         "exitTime"    : new Date().toString(),
-        "terminalID"  : 1,
-        "userID"      : this.$route.params.uid
+        "terminalId"  : 1,
+        "userId"      : this.$route.params.uid
       },
       {
         headers: { 
