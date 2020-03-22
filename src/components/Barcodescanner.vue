@@ -37,7 +37,24 @@ export default {
     logIt(data) {
       this.barcode = data.codeResult.code;
       this.route = this.$route.path;
-      if (this.barcode !== this.lastBarcode && this.route !== this.lastRoute) {
+      if (this.route !== this.lastRoute) {
+        if (this.barcode !== this.lastBarcode) {
+          // User is added to temporary checked in userlist
+          if (this.$store.getters.getUser(this.barcode) === undefined) {
+            this.$store.dispatch("addUser", {
+              id: this.barcode,
+              timestamp: Date.now()
+            });
+          } else {
+            // Checkout procedure
+            this.$store.dispatch("removeUser", {
+              id: this.barcode,
+              timestamp: Date.now()
+            });
+            console.log(this.$store.getters.getUserlist);
+          }
+        }
+
         if (this.$route !== "/success") {
           this.$router.push("/success");
           this.lastRoute = "/success";
