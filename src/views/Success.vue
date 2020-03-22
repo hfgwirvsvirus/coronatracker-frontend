@@ -1,11 +1,13 @@
 <template>
   <div>
-    <p>scanning...</p>
+    <p>scan erfolgreich</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Idle"
+  name: "Scan"
 };
 </script>
+
+<style lang="scss"></style>

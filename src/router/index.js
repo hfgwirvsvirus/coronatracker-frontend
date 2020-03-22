@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Idle from "../views/Idle.vue";
-import Scan from "../views/Scan.vue";
+import Success from "../views/Success.vue";
 
 Vue.use(VueRouter);
 
@@ -12,9 +12,14 @@ const routes = [
     component: Idle
   },
   {
-    path: "/scan",
-    name: "Scan",
-    component: Scan
+    path: "/idle",
+    name: "Idle",
+    component: Idle
+  },
+  {
+    path: "/success",
+    name: "Success",
+    component: Success
   }
 ];
 
