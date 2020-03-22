@@ -1,18 +1,51 @@
 <template>
   <div id="app">
-    <QRReader />
+    <div class="row">
+      <div class="column scanner">
+        <Barcodescanner routerLink="/success" />
+      </div>
+
+      <div class="column">
+        <div id="nav">
+          <router-link to="/">Idle</router-link> |
+          <router-link to="/success">Success</router-link>
+        </div>
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-import QRReader from "./components/QRReader.vue";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  name: "App",
-  components: {
-    QRReader
+#nav {
+  // padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
   }
-};
-</script>
+}
 
-<style lang="scss"></style>
+.container {
+  display: flex;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+</style>
